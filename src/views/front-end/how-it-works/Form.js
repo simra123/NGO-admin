@@ -1,4 +1,12 @@
-
+import { useState } from 'react'
+import Uppy from '@uppy/core'
+import thumbnailGenerator from '@uppy/thumbnail-generator'
+import { DragDrop } from '@uppy/react'
+import '../../../@core/scss/react/libs/file-uploader/file-uploader.scss'
+import 'uppy/dist/uppy.css'
+import { EditorState } from 'draft-js'
+import { Editor } from 'react-draft-wysiwyg'
+import '../../../@core/scss/react/libs/editor/editor.scss'
 import {
   Card,
   CardHeader,
@@ -21,164 +29,55 @@ import {
 
   
   const WorksForm = () => {
+    const [value, setValue] = useState(EditorState.createEmpty())
 
+    //file uploader
+    const [img, setImg] = useState(null)
+    const uppy = new Uppy({
+      meta: { type: 'avatar' },
+      restrictions: { maxNumberOfFiles: 1 },
+      autoProceed: true
+    })
+  
+    uppy.use(thumbnailGenerator)
+  
+    uppy.on('thumbnail:generated', (file, preview) => {
+      setImg(preview)
+    })
     return (
       <Card>
         <CardHeader>
-          <CardTitle tag='h4'>Edit How it Works</CardTitle>
+          <CardTitle tag='h4'>How it Works</CardTitle>
         </CardHeader>
         <CardBody>
         <Form>
             <Row>
-              <Col md="4" sm='12'>
+              <Col md="12" sm='12'>
                 <FormGroup>
                 <Label for='icon'>Upload Icon</Label>
                 <CustomInput type='file' id='icon' name='customFile' />
                 </FormGroup>
                
               </Col>
-              
-              <Col sm="12" md="4">
-                {/* how it works form */}
-                <Label for='icon-heading'>Icon Heading</Label>
-                <InputGroup className='input-group-merge' tag={FormGroup}>
-                <InputGroupAddon addonType='prepend'>
-                    <InputGroupText>
-                    <FaTextWidth size={15} />
-                    </InputGroupText>
-                </InputGroupAddon>
-                <Input type='text' id='icon-heading' placeholder='Enter your Heading' />
-                </InputGroup>
-              </Col> 
-
-
-              <Col sm="12" md="4">
-                {/* how it works form */}
-                <Label for='icon-text'>Icon Text</Label>
-                <InputGroup className='input-group-merge' tag={FormGroup}>
-                <InputGroupAddon addonType='prepend'>
-                    <InputGroupText>
-                    <FaTextWidth size={15} />
-                    </InputGroupText>
-                </InputGroupAddon>
-                <Input type='text' id='icon-text' placeholder='Enter your Text' />
-                </InputGroup>
-              </Col> 
-
-
-              <Col md="4" sm='12'>
-                <FormGroup>
-                <Label for='icon'>Upload Icon</Label>
-                <CustomInput type='file' id='icon' name='customFile' />
-                </FormGroup>
-               
+              <Col sm='12' className="mt-2">
+                {/* basic image upload */}
+                
+                  <h6> Upload Image </h6>
+                    <DragDrop uppy={uppy} />
+                    {img !== null ? <img className='rounded mt-2' src={img} alt='avatar' /> : null}
               </Col>
-              
-              <Col sm="12" md="4">
-                {/* how it works form */}
-                <Label for='icon-heading'>Icon Heading</Label>
-                <InputGroup className='input-group-merge' tag={FormGroup}>
-                <InputGroupAddon addonType='prepend'>
-                    <InputGroupText>
-                    <FaTextWidth size={15} />
-                    </InputGroupText>
-                </InputGroupAddon>
-                <Input type='text' id='icon-heading' placeholder='Enter your Heading' />
-                </InputGroup>
-              </Col> 
-
-
-              <Col sm="12" md="4">
-                {/* how it works form */}
-                <Label for='icon-text'>Icon Text</Label>
-                <InputGroup className='input-group-merge' tag={FormGroup}>
-                <InputGroupAddon addonType='prepend'>
-                    <InputGroupText>
-                    <FaTextWidth size={15} />
-                    </InputGroupText>
-                </InputGroupAddon>
-                <Input type='text' id='icon-text' placeholder='Enter your Text' />
-                </InputGroup>
-              </Col> 
-
-
-              <Col md="4" sm='12'>
-                <FormGroup>
-                <Label for='icon'>Upload Icon</Label>
-                <CustomInput type='file' id='icon' name='customFile' />
-                </FormGroup>
-               
+              <Col sm='12' className="my-2">
+                  {/* text editor */}
+                <h6>Text </h6>
+                <Editor editorState={value} onEditorStateChange={data => setValue(data)} />
               </Col>
-              
-              <Col sm="12" md="4">
-                {/* how it works form */}
-                <Label for='icon-heading'>Icon Heading</Label>
-                <InputGroup className='input-group-merge' tag={FormGroup}>
-                <InputGroupAddon addonType='prepend'>
-                    <InputGroupText>
-                    <FaTextWidth size={15} />
-                    </InputGroupText>
-                </InputGroupAddon>
-                <Input type='text' id='icon-heading' placeholder='Enter your Heading' />
-                </InputGroup>
-              </Col> 
-
-
-              <Col sm="12" md="4">
-                {/* how it works form */}
-                <Label for='icon-text'>Icon Text</Label>
-                <InputGroup className='input-group-merge' tag={FormGroup}>
-                <InputGroupAddon addonType='prepend'>
-                    <InputGroupText>
-                    <FaTextWidth size={15} />
-                    </InputGroupText>
-                </InputGroupAddon>
-                <Input type='text' id='icon-text' placeholder='Enter your Text' />
-                </InputGroup>
-              </Col>
-
-              <Col md="4" sm='12'>
-                <FormGroup>
-                <Label for='icon'>Upload Icon</Label>
-                <CustomInput type='file' id='icon' name='customFile' />
-                </FormGroup>
-               
-              </Col>
-              
-              <Col sm="12" md="4">
-                {/* how it works form */}
-                <Label for='icon-heading'>Icon Heading</Label>
-                <InputGroup className='input-group-merge' tag={FormGroup}>
-                <InputGroupAddon addonType='prepend'>
-                    <InputGroupText>
-                    <FaTextWidth size={15} />
-                    </InputGroupText>
-                </InputGroupAddon>
-                <Input type='text' id='icon-heading' placeholder='Enter your Heading' />
-                </InputGroup>
-              </Col> 
-
-
-              <Col sm="12" md="4">
-                {/* how it works form */}
-                <Label for='icon-text'>Icon Text</Label>
-                <InputGroup className='input-group-merge' tag={FormGroup}>
-                <InputGroupAddon addonType='prepend'>
-                    <InputGroupText>
-                    <FaTextWidth size={15} />
-                    </InputGroupText>
-                </InputGroupAddon>
-                <Input type='text' id='icon-text' placeholder='Enter your Text' />
-                </InputGroup>
-              </Col> 
-              <Col sm="12" className="mt-2">
+              <Col sm='12' className="mt-1">
                 <FormGroup className='d-flex mb-0'>
                   <Button.Ripple className='mr-1' color='primary' type='submit' onClick={e => e.preventDefault()}>
                     Submit
                       {/* spinner */}
                       {/* <Spinner color='light' /> */}
                   </Button.Ripple>
-               
                 </FormGroup>
               </Col>
             </Row>

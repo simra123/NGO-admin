@@ -259,6 +259,20 @@ const AppRoutes = [
     }
   },
   {
+    path: '/sliders/desktop',
+    component: lazy(() => import('../../views/sliders/Desktop')),
+    meta: {
+      navLink: '/sliders/desktop'
+    }
+  },
+  {
+    path: '/sliders/mobile',
+    component: lazy(() => import('../../views/sliders/Mobile')),
+    meta: {
+      navLink: '/sliders/mobile'
+    }
+  },
+  {
     path: '/banners',
     component: lazy(() => import('../../views/banners')),
     meta: {
@@ -327,6 +341,15 @@ const AppRoutes = [
     }
   },
   {
+    path: '/frontend/work/form',
+    component: lazy(() => import('../../views/front-end/how-it-works/Form')),
+    exact: true,
+    meta: {
+      navLink: '/frontend/work/form'
+    }
+  },
+
+  {
     path: '/frontend/work/edit',
     component: lazy(() => import('../../views/front-end/how-it-works/Form')),
     exact: true,
@@ -380,6 +403,54 @@ const AppRoutes = [
     exact: true,
     meta: {
       navLink: '/splash-screens'
+    }
+  },
+  {
+    path: '/activity/list',
+    component: lazy(() => import('../../views/activity/List')),
+    exact: true,
+    meta: {
+      navLink: '/activity/list'
+    }
+  },
+  {
+    path: '/activity/form',
+    component: lazy(() => import('../../views/activity/Form')),
+    exact: true,
+    meta: {
+      navLink: '/activity/form'
+    }
+  },
+  {
+    path: '/cause/list',
+    component: lazy(() => import('../../views/new-cause/List')),
+    exact: true,
+    meta: {
+      navLink: '/cause/list'
+    }
+  },
+  {
+    path: '/cause/form',
+    component: lazy(() => import('../../views/new-cause/Form')),
+    exact: true,
+    meta: {
+      navLink: '/cause/form'
+    }
+  },
+  {
+    path: '/news/list',
+    component: lazy(() => import('../../views/news-stories/List')),
+    exact: true,
+    meta: {
+      navLink: '/news/list'
+    }
+  },
+  {
+    path: '/news/form',
+    component: lazy(() => import('../../views/news-stories/Form')),
+    exact: true,
+    meta: {
+      navLink: '/news/form'
     }
   }
 ]

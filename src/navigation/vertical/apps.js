@@ -1,10 +1,11 @@
-import { Mail, MessageSquare, Octagon, BookOpen, Archive, Award, CheckSquare, Calendar, FileText, Circle, Codesandbox, Smartphone, Settings, User } from 'react-feather'
+import { Activity, MessageSquare, Octagon, BookOpen, Archive, Award, CheckSquare, Calendar, FileText, Circle, Codesandbox, Smartphone, Settings, User } from 'react-feather'
 import {BiCategory} from 'react-icons/bi'
 import {MdOutlineProductionQuantityLimits} from 'react-icons/md'
 import {CgAttribution, CgWebsite} from 'react-icons/cg'
-import {FaQuestionCircle} from 'react-icons/fa'
+import {FaNewspaper, FaQuestionCircle} from 'react-icons/fa'
 import {AiOutlineFundProjectionScreen} from 'react-icons/ai'
 import {GiVerticalBanner} from 'react-icons/gi'
+import {RiSlideshowLine} from 'react-icons/ri'
 
 export default [
   {
@@ -149,6 +150,66 @@ export default [
     ]
   },
   {
+    id: 'activity',
+    title: 'Activity',
+    icon: <Activity size={20} />,
+    children: [
+      {
+        id: 'form-activity',
+        title: 'Add New Activity',
+        icon: <Circle size={12} />,
+        navLink: '/activity/form'
+      },
+      {
+        id: 'list-activity',
+        title: 'Activity List',
+        icon: <Circle size={12} />,
+        navLink: '/activity/list'
+      }
+      
+    ]
+  },
+  {
+    id: 'cause',
+    title: 'New Cause',
+    icon: <BookOpen size={20} />,
+    children: [
+      {
+        id: 'form-cause',
+        title: 'Add New Cause',
+        icon: <Circle size={12} />,
+        navLink: '/cause/form'
+      },
+      {
+        id: 'list-cause',
+        title: 'Cause List',
+        icon: <Circle size={12} />,
+        navLink: '/cause/list'
+      }
+      
+    ]
+  },
+  {
+    id: 'news',
+    title: 'News and Stories',
+    icon: <FaNewspaper size={20} />,
+    children: [
+      {
+        id: 'form-news',
+        title: 'Add News and Stories',
+        icon: <Circle size={12} />,
+        navLink: '/news/form'
+      },
+      {
+        id: 'list-news',
+        title: 'News and Stories List',
+        icon: <Circle size={12} />,
+        navLink: '/news/list'
+      }
+      
+    ]
+  },
+  {
     id: 'product',
     title: 'Product Form',
     icon: <MdOutlineProductionQuantityLimits size={20} />,
@@ -266,18 +327,37 @@ export default [
     ]
   },
   {
-    id: 'Banners',
+    id: 'sliders',
+    title: 'Sliders',
+    icon: <RiSlideshowLine  size={12} />,
+    children: [
+      {
+        id: 'desktop',
+        title: 'For Desktop',
+        icon: <Circle size={12} />,
+        navLink: '/sliders/desktop'
+      },
+      {
+        id: 'list',
+        title: 'For Mobile',
+        icon: <Circle size={12} />,
+        navLink: '/sliders/mobile'
+      }
+    ]
+  },
+  {
+    id: 'banners',
     title: 'Banners',
     icon: <CgWebsite  size={12} />,
     navLink: '/banners'
   },
  
-    {
-      id: 'bookings',
-      title: 'Bookings',
-      icon:<BookOpen  size={20} />,
-      navLink: '/apps/user/list'
-    },
+    // {
+    //   id: 'bookings',
+    //   title: 'Bookings',
+    //   icon:<BookOpen  size={20} />,
+    //   navLink: '/apps/user/list'
+    // },
     {
       id: 'chat',
       title: 'Chat',

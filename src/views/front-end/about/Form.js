@@ -45,94 +45,7 @@ import {
             </Col>
           <Form>
             <Row>
-
-              <Col md="6" sm='12'>
-                <FormGroup>
-                <Label for='icon'>Upload Icon</Label>
-                <CustomInput type='file' id='icon' name='customFile' />
-                </FormGroup>
-               
-              </Col>
-
-              <Col md="6" sm="12">
-                {/* about form */}
-                <Label for='icon-text'>Icon Text</Label>
-                <InputGroup className='input-group-merge' tag={FormGroup}>
-                <InputGroupAddon addonType='prepend'>
-                    <InputGroupText>
-                    <FaTextWidth size={15} />
-                    </InputGroupText>
-                </InputGroupAddon>
-                <Input type='text' name='name' id='icon-text' placeholder='Enter your icon text' />
-                </InputGroup>
-              </Col> 
-
-
-              <Col md="6" sm='12'>
-                <FormGroup>
-                <Label for='icon'>Upload Icon</Label>
-                <CustomInput type='file' id='icon' name='customFile' />
-                </FormGroup>
-               
-              </Col>
-
-              <Col md="6" sm="12">
-                {/* about form */}
-                <Label for='icon-text'>Icon Text</Label>
-                <InputGroup className='input-group-merge' tag={FormGroup}>
-                <InputGroupAddon addonType='prepend'>
-                    <InputGroupText>
-                    <FaTextWidth size={15} />
-                    </InputGroupText>
-                </InputGroupAddon>
-                <Input type='text' name='name' id='icon-text' placeholder='Enter your icon text' />
-                </InputGroup>
-              </Col> 
-
-
-              <Col md="6" sm='12'>
-                <FormGroup>
-                <Label for='icon'>Upload Icon</Label>
-                <CustomInput type='file' id='icon' name='customFile' />
-                </FormGroup>
-               
-              </Col>
-
-              <Col md="6" sm="12">
-                {/* about form */}
-                <Label for='icon-text'>Icon Text</Label>
-                <InputGroup className='input-group-merge' tag={FormGroup}>
-                <InputGroupAddon addonType='prepend'>
-                    <InputGroupText>
-                    <FaTextWidth size={15} />
-                    </InputGroupText>
-                </InputGroupAddon>
-                <Input type='text' name='name' id='icon-text' placeholder='Enter your icon text' />
-                </InputGroup>
-              </Col> 
- 
-              <Col md="6" sm='12'>
-                <FormGroup>
-                <Label for='icon'>Upload Icon</Label>
-                <CustomInput type='file' id='icon' name='customFile' />
-                </FormGroup>
-               
-              </Col>
-
-              <Col md="6" sm="12">
-                {/* about form */}
-                <Label for='icon-text'>Icon Text</Label>
-                <InputGroup className='input-group-merge' tag={FormGroup}>
-                <InputGroupAddon addonType='prepend'>
-                    <InputGroupText>
-                    <FaTextWidth size={15} />
-                    </InputGroupText>
-                </InputGroupAddon>
-                <Input type='text' name='name' id='icon-text' placeholder='Enter your icon text' />
-                </InputGroup>
-              </Col> 
-
-              <Col  sm="12">
+              <Col md="12" sm="12">
                 {/* about form */}
                 <Label for='url'>Video Url</Label>
                 <InputGroup className='input-group-merge' tag={FormGroup}>
@@ -141,10 +54,9 @@ import {
                     <AiOutlineLink size={15} />
                     </InputGroupText>
                 </InputGroupAddon>
-                <Input type='text' name='name' id='url' placeholder='Enter your Video Url' />
+                <Input type='text' name='name' id='url' placeholder='Enter your Video URL' />
                 </InputGroup>
               </Col> 
-             
               
               <Col sm="12" className="mt-2">
                 <FormGroup className='d-flex mb-0'>

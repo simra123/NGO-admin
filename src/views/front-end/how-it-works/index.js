@@ -2,6 +2,7 @@ import { useState } from 'react'
 import '../../../@core/scss/react/libs/editor/editor.scss'
 import { MoreVertical, Edit, Trash, User } from 'react-feather'
 import {FaTextWidth} from 'react-icons/fa'
+import {Link} from 'react-router-dom'
 
 
 import {  Card, CustomInput, Spinner, Form, Row, Col, Label, InputGroup, FormGroup, InputGroupAddon, InputGroupText, Input, CardTitle, CardBody, Table,  Modal, ModalHeader, ModalBody, ModalFooter, UncontrolledDropdown, DropdownMenu, DropdownItem, DropdownToggle, Button } from 'reactstrap'
@@ -9,25 +10,25 @@ import {  Card, CustomInput, Spinner, Form, Row, Col, Label, InputGroup, FormGro
   const sections = [
     {
         id:0,
-        icon : 'https://nanny-frontend.netlify.app/static/media/step1.bd10ab3f.png',
+        image : 'https://www.ewa.org/sites/main/files/imagecache/lightbox/main-images/children-in-detroit-laundromat-erin-einhorn-chalkbeat_900x610_1.jpg',
         heading : 'Join the Network',
         text : "Lorem ipsum dolor sit amet"
     },
     {
         id:1,
-        icon : 'https://nanny-frontend.netlify.app/static/media/step2.7fb5a3ea.png',
+        image : 'https://www.ewa.org/sites/main/files/imagecache/lightbox/main-images/children-in-detroit-laundromat-erin-einhorn-chalkbeat_900x610_1.jpg',
         heading : 'Join the Network',
         text : "Lorem ipsum dolor sit amet"
     },
     {
         id:2,
-        icon : 'https://nanny-frontend.netlify.app/static/media/step3.2de5c9d4.png',
+        image : 'https://www.ewa.org/sites/main/files/imagecache/lightbox/main-images/children-in-detroit-laundromat-erin-einhorn-chalkbeat_900x610_1.jpg',
         heading : 'Join the Network',
         text : "Lorem ipsum dolor sit amet"
     },
     {
         id:3,
-        icon : 'https://nanny-frontend.netlify.app/static/media/step4.b999f632.png',
+        image : 'https://www.ewa.org/sites/main/files/imagecache/lightbox/main-images/children-in-detroit-laundromat-erin-einhorn-chalkbeat_900x610_1.jpg',
         heading : 'Join the Network',
         text : "Lorem ipsum dolor sit amet"
     }
@@ -53,9 +54,10 @@ import {  Card, CustomInput, Spinner, Form, Row, Col, Label, InputGroup, FormGro
         <Table responsive>
           <thead>
             <tr>
-              <th>Icon</th>
+              <th>Image</th>
               <th>Heading</th>
               <th>Text</th>
+              <th>Action</th>
             </tr>
           </thead>
           <tbody>
@@ -64,7 +66,7 @@ import {  Card, CustomInput, Spinner, Form, Row, Col, Label, InputGroup, FormGro
               return (
               <tr key={index}>
               <td>
-                <img src={value.icon} alt="" height="50" width="50"/>
+                <img src={value.image} alt="" height="50" width="50"/>
               </td>
 
               <td> {value.heading} </td>
@@ -75,14 +77,14 @@ import {  Card, CustomInput, Spinner, Form, Row, Col, Label, InputGroup, FormGro
                       <MoreVertical size={15} />
                   </DropdownToggle>
                   <DropdownMenu right>
-                      <DropdownItem href='/' onClick={(e) => { 
-                        e.preventDefault()  
-                        toggleModalPrimary(value.id) 
-                        }}>
-                      <Edit className='mr-50' size={15} />  <span className='align-middle'>Edit</span>
-                      </DropdownItem>
-
-                  </DropdownMenu>
+                      <Link to="/frontend/work/form">
+                        <DropdownItem href='/' >
+                            
+                        <Edit className='mr-50' size={15} />  <span className='align-middle'>Edit</span>
+                        
+                        </DropdownItem>
+                      </Link>
+                   </DropdownMenu>
                   </UncontrolledDropdown>
                    {/* edit modal */}
                    <Modal

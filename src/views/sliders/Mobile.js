@@ -4,40 +4,33 @@ import thumbnailGenerator from '@uppy/thumbnail-generator'
 import { DragDrop } from '@uppy/react'
 import '../../@core/scss/react/libs/file-uploader/file-uploader.scss'
 import 'uppy/dist/uppy.css'
-import { selectThemeColors } from '@utils'
-import { MoreVertical, Edit, Trash} from 'react-feather'
-import Select from 'react-select'
+import { MoreVertical, Edit, Trash, User } from 'react-feather'
 
-const pageNames = [
-    { value: 'ocean', label: 'About Us' },
-    { value: 'blue', label: 'Services' },
-    { value: 'purple', label: 'Contact Us' },
-    { value: 'red', label: 'Home' }
-  ]
 
-import {  Card, Spinner, CustomInput, Label, FormGroup, CardHeader, Form, Row, Col, CardTitle, CardBody, Table,  Modal, ModalHeader, ModalBody, ModalFooter, UncontrolledDropdown, DropdownMenu, DropdownItem, DropdownToggle, Button } from 'reactstrap'
+import {  Card, Spinner, Form, Row, Col, CardTitle, CardBody, Table,  Modal, ModalHeader, ModalBody, ModalFooter, UncontrolledDropdown, DropdownMenu, DropdownItem, DropdownToggle, Button } from 'reactstrap'
 
   const banner = [
     {  
       id:1,
-      page : 'Home',
-      image : 'https://www.globalpartnership.org/sites/default/files/styles/standard_blog_banner/public/29710525041_ad39691f86_k.jpg?itok=iXLyBysd'
+      no : 1,
+      image : 'https://nanny-frontend.netlify.app/static/media/Mobile%20Responsive%201-01.2d599ab5.jpg'
     },
     {  
       id:2,
-      page : 'About Us',
-      image : 'https://www.globalpartnership.org/sites/default/files/styles/standard_blog_banner/public/29710525041_ad39691f86_k.jpg?itok=iXLyBysd'
+      no : 2,
+      image : 'https://nanny-frontend.netlify.app/static/media/Mobile%20Responsive%203-01.e0c03619.jpg'
     },
     {  
         id:3,
-        page : 'Services',
-        image : 'https://www.globalpartnership.org/sites/default/files/styles/standard_blog_banner/public/29710525041_ad39691f86_k.jpg?itok=iXLyBysd'
+        no : 3,
+        image : 'https://nanny-frontend.netlify.app/static/media/Mobile%20Responsive%202-01.4acccfaf.jpg'
       }
     
 ]
-  const DesktopBanner = () => {
+  const MobileBanner = () => {
     const [modal, setModal] = useState(null)
     const [modal2, setModal2] = useState(null)
+    const [modal3, setModal3] = useState(null)
 
     const toggleModalDanger = id => {
       if (modal !== id) {
@@ -53,7 +46,13 @@ import {  Card, Spinner, CustomInput, Label, FormGroup, CardHeader, Form, Row, C
           setModal2(null)
         }
       }
-    
+      const toggleAddNew = id => {
+        if (modal3 !== id) {
+          setModal3(id)
+        } else {
+          setModal3(null)
+        }
+      }
     //file uploader
     const [img, setImg] = useState(null)
 
@@ -71,49 +70,47 @@ import {  Card, Spinner, CustomInput, Label, FormGroup, CardHeader, Form, Row, C
     return (
         <>
         <Card>
-        <CardHeader>
-          <CardTitle tag='h4'>Add Page Banners </CardTitle>
-        </CardHeader>
         <CardBody>
-          <Form>
-            <Row>
-            <Col className='mb-1' md='6' sm='12'>
-                <Label>Page Name</Label>
-                <Select
-                theme={selectThemeColors}
-                className='react-select'
-                classNamePrefix='select'
-                defaultValue={pageNames[0]}
-                options={pageNames}
-                isClearable={false}
-                />
-            </Col>
-               <Col md='6' sm='12'>
-                    <FormGroup>
-                    <Label for='exampleCustomFileBrowser'>Upload Page Banner</Label>
-                    <CustomInput type='file' id='exampleCustomFileBrowser' name='customFile' />
-                    </FormGroup>
-                </Col>
-               <Col sm='12' className="mt-1">
-                <FormGroup className='d-flex mb-0'>
-                  <Button.Ripple className='mr-1' color='primary' type='submit' onClick={e => e.preventDefault()}>
-                    Submit
-                      {/* spinner */}
-                      {/* <Spinner color='light' /> */}
-                  </Button.Ripple>
-                </FormGroup>
-              </Col>
-            </Row>
-          </Form>
-        </CardBody>
-      </Card>
-      <Card>
-      <CardBody>
-      <CardTitle>All Banners</CardTitle>
+        <CardTitle>All Mobile Banners </CardTitle>
+        <div className="float-right mb-2">
+          <Button color="primary" onClick={() => toggleAddNew(0)}>
+            Add new Banner
+          </Button>
+          <Modal
+            isOpen={modal3 === 0}
+            toggle={() => toggleAddNew(0)}
+            className='modal-dialog-centered'
+            modalClassName="modal-primary"
+            key={0}>
+            <ModalHeader toggle={() => toggleAddNew(0)}>Edit</ModalHeader>
+            <ModalBody>
+                <Form>
+                    <Row>
+                      <Col sm='12' className="mt-2">
+                        {/* basic image upload */}
+                      
+                        <h6> Upload Banner </h6>
+                          <DragDrop uppy={uppy} />
+                          {img !== null ? <img className='rounded mt-2' src={img} alt='avatar' /> : null}
+                      </Col>
+                        
+                    </Row>
+                </Form>
+            </ModalBody>
+            <ModalFooter>
+                            
+            <Button color="primary" onClick={() => toggleAddNew(0)}>
+              Submit
+                {/* spinner */}
+                {/* <Spinner color='light' /> */}
+            </Button>
+          </ModalFooter>
+        </Modal>
+        </div>
         <Table responsive>
           <thead>
             <tr>
-              <th>Page Names</th>
+              <th>S.No</th>
               <th>Banners</th>
               <th>Actions</th>
             </tr>
@@ -124,10 +121,10 @@ import {  Card, Spinner, CustomInput, Label, FormGroup, CardHeader, Form, Row, C
               return (
               <tr key={index}>
               <td>
-                {value.page}
+                {value.no}
               </td>
       
-              <td> <img src={value.image}  width="200" height="100" alt=""/> </td>
+              <td> <img src={value.image}  width="100" height="100" alt=""/> </td>
                 <td>
                   <UncontrolledDropdown>
                   <DropdownToggle className='icon-btn hide-arrow' color='transparent' size='sm' caret>
@@ -202,6 +199,7 @@ import {  Card, Spinner, CustomInput, Label, FormGroup, CardHeader, Form, Row, C
               )
           })
       }
+     
       
     </tbody>
   </Table>
@@ -210,5 +208,5 @@ import {  Card, Spinner, CustomInput, Label, FormGroup, CardHeader, Form, Row, C
   </>
     )
   }
-  export default DesktopBanner
+  export default MobileBanner
   

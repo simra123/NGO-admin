@@ -11,7 +11,7 @@ import {  Card, CardTitle, Table, CardBody, UncontrolledDropdown, DropdownMenu, 
   const about = [
     {
       id:1,
-      text : 'we this is perhaps the single biggest obstacle that all of us must overcome successful....'
+      text : 'we this is perhaps the single biggest...'
     }
 
 ]
