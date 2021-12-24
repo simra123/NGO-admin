@@ -6,7 +6,6 @@ import Flatpickr from 'react-flatpickr'
 import { Form, FormGroup, Input, Label, Button } from 'reactstrap'
 
 // ** Custom Components
-import Sidebar from '@components/sidebar'
 
 // ** Styles
 import '@styles/react/libs/flatpickr/flatpickr.scss'
@@ -19,11 +18,11 @@ const SidebarAddPayment = ({ open, toggleSidebar }) => {
   return (
     <Sidebar
       size='lg'
-      open={open}
+      open={ open }
       title='Add Payment'
       headerClassName='mb-1'
       contentClassName='p-0'
-      toggleSidebar={toggleSidebar}
+      toggleSidebar={ toggleSidebar }
     >
       <Form>
         <FormGroup>
@@ -39,7 +38,7 @@ const SidebarAddPayment = ({ open, toggleSidebar }) => {
           <Label for='payment-amount' className='form-label'>
             Payment Date
           </Label>
-          <Flatpickr id='payment-amount' value={picker} onChange={date => setPicker(date)} className='form-control' />
+          <Flatpickr id='payment-amount' value={ picker } onChange={ date => setPicker(date) } className='form-control' />
         </FormGroup>
         <FormGroup>
           <Label for='payment-method' className='form-label'>
@@ -63,10 +62,10 @@ const SidebarAddPayment = ({ open, toggleSidebar }) => {
           <Input type='textarea' rows='5' id='payment-note' placeholder='Internal Payment Note' />
         </FormGroup>
         <FormGroup className='d-flex flex-wrap mb-0'>
-          <Button className='mr-1' color='primary' onClick={toggleSidebar}>
+          <Button className='mr-1' color='primary' onClick={ toggleSidebar }>
             Send
           </Button>
-          <Button color='secondary' outline onClick={toggleSidebar}>
+          <Button color='secondary' outline onClick={ toggleSidebar }>
             Cancel
           </Button>
         </FormGroup>

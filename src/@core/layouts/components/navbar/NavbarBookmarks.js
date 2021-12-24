@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom'
 // ** Third Party Components
 import * as Icon from 'react-feather'
 import classnames from 'classnames'
-import Autocomplete from '@components/autocomplete'
 import {
   NavItem,
   NavLink,
@@ -44,10 +43,10 @@ const NavbarBookmarks = props => {
         .map(item => {
           const IconTag = Icon[item.icon]
           return (
-            <NavItem key={item.target} className='d-none d-lg-block'>
-              <NavLink tag={Link} to={item.link} id={item.target}>
+            <NavItem key={ item.target } className='d-none d-lg-block'>
+              <NavLink tag={ Link } to={ item.link } id={ item.target }>
                 <IconTag className='ficon' />
-                <UncontrolledTooltip target={item.target}>{item.title}</UncontrolledTooltip>
+                <UncontrolledTooltip target={ item.target }>{ item.title }</UncontrolledTooltip>
               </NavLink>
             </NavItem>
           )
@@ -69,17 +68,17 @@ const NavbarBookmarks = props => {
                 <Icon.ChevronDown className='ficon' />
               </DropdownToggle>
               <DropdownMenu right>
-                {store.bookmarks
+                { store.bookmarks
                   .map(item => {
                     const IconTag = Icon[item.icon]
                     return (
-                      <DropdownItem tag={Link} to={item.link} key={item.id}>
-                        <IconTag className='mr-50' size={14} />
-                        <span className='align-middle'>{item.title}</span>
+                      <DropdownItem tag={ Link } to={ item.link } key={ item.id }>
+                        <IconTag className='mr-50' size={ 14 } />
+                        <span className='align-middle'>{ item.title }</span>
                       </DropdownItem>
                     )
                   })
-                  .slice(10)}
+                  .slice(10) }
               </DropdownMenu>
             </UncontrolledDropdown>
           </NavLink>
@@ -139,23 +138,23 @@ const NavbarBookmarks = props => {
     <Fragment>
       <ul className='navbar-nav d-xl-none'>
         <NavItem className='mobile-menu mr-auto'>
-          <NavLink className='nav-menu-main menu-toggle hidden-xs is-active' onClick={() => setMenuVisibility(true)}>
+          <NavLink className='nav-menu-main menu-toggle hidden-xs is-active' onClick={ () => setMenuVisibility(true) }>
             <Icon.Menu className='ficon' />
           </NavLink>
         </NavItem>
       </ul>
       <ul className='nav navbar-nav bookmark-icons'>
-        {renderBookmarks()}
-        {renderExtraBookmarksDropdown()}
+        { renderBookmarks() }
+        { renderExtraBookmarksDropdown() }
         <NavItem className='nav-item d-none d-lg-block'>
-          <NavLink className='bookmark-star' onClick={handleBookmarkVisibility}>
+          <NavLink className='bookmark-star' onClick={ handleBookmarkVisibility }>
             <Icon.Star className='ficon text-warning' />
           </NavLink>
-          <div className={classnames('bookmark-input search-input', { show: openSearch })}>
+          <div className={ classnames('bookmark-input search-input', { show: openSearch }) }>
             <div className='bookmark-input-icon'>
-              <Icon.Search size={14} />
+              <Icon.Search size={ 14 } />
             </div>
-            {openSearch && store.suggestions.length ? (
+            {/* {openSearch && store.suggestions.length ? (
               <Autocomplete
                 wrapperClass={classnames('search-list search-list-bookmark', {
                   show: openSearch
@@ -216,7 +215,7 @@ const NavbarBookmarks = props => {
                   )
                 }}
               />
-            ) : null}
+            ) : null} */}
           </div>
         </NavItem>
       </ul>

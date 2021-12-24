@@ -12,7 +12,6 @@ import { useDispatch } from 'react-redux'
 import { handleSearchQuery } from '@store/actions/navbar'
 
 // ** Custom Components
-import Autocomplete from '@components/autocomplete'
 
 const NavbarSearch = () => {
   // ** Store Vars
@@ -74,19 +73,19 @@ const NavbarSearch = () => {
   }
 
   return (
-    <NavItem className='nav-search' onClick={() => setNavbarSearch(true)}>
+    <NavItem className='nav-search' onClick={ () => setNavbarSearch(true) }>
       <NavLink className='nav-link-search'>
         <Icon.Search className='ficon' />
       </NavLink>
       <div
-        className={classnames('search-input', {
+        className={ classnames('search-input', {
           open: navbarSearch === true
-        })}
+        }) }
       >
         <div className='search-input-icon'>
           <Icon.Search />
         </div>
-        {navbarSearch ? (
+        {/* {navbarSearch ? (
           <Autocomplete
             className='form-control'
             suggestions={suggestions}
@@ -135,21 +134,21 @@ const NavbarSearch = () => {
                       <div className='meta-container'>
                         <small className='text-muted'>{item.size ? item.size : item.date ? item.date : null}</small>
                       </div>
-                    ) : null}
+                    ) : null} 
                   </div>
                 </li>
               )
             }}
           />
-        ) : null}
+        ) : null}*/}
         <div className='search-input-close'>
           <Icon.X
             className='ficon'
-            onClick={e => {
+            onClick={ e => {
               e.stopPropagation()
               setNavbarSearch(false)
               handleClearQueryInStore()
-            }}
+            } }
           />
         </div>
       </div>

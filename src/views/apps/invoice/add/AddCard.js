@@ -2,8 +2,6 @@
 import { Fragment, useState, useEffect } from 'react'
 
 // ** Custom Components
-import Sidebar from '@components/sidebar'
-import Repeater from '@components/repeater'
 
 // ** Third Party Components
 import axios from 'axios'
@@ -107,12 +105,12 @@ const AddCard = () => {
   const OptionComponent = ({ data, ...props }) => {
     if (data.type === 'button') {
       return (
-        <Button className='text-left rounded-0' color={data.color} block onClick={() => setOpen(true)}>
-          <Plus size={14} /> <span className='align-middle ml-50'>{data.label}</span>
+        <Button className='text-left rounded-0' color={ data.color } block onClick={ () => setOpen(true) }>
+          <Plus size={ 14 } /> <span className='align-middle ml-50'>{ data.label }</span>
         </Button>
       )
     } else {
-      return <components.Option {...props}> {data.label} </components.Option>
+      return <components.Option { ...props }> { data.label } </components.Option>
     }
   }
 
@@ -128,7 +126,7 @@ const AddCard = () => {
   return (
     <Fragment>
       <Card className='invoice-preview-card mb-0'>
-        {/* Header */}
+        {/* Header */ }
         <CardBody className='invoice-padding pb-0'>
           <div className='d-flex justify-content-between flex-md-row flex-column invoice-spacing mt-0'>
             <div>
@@ -156,7 +154,7 @@ const AddCard = () => {
                         <path
                           className='text-primary'
                           d='M-5.68434189e-14,2.84217094e-14 L39.1816085,2.84217094e-14 L69.3453773,32.2519224 L101.428699,2.84217094e-14 L138.784583,2.84217094e-14 L138.784199,29.8015838 C137.958931,37.3510206 135.784352,42.5567762 132.260463,45.4188507 C128.736573,48.2809251 112.33867,64.5239941 83.0667527,94.1480575 L56.2750821,94.1480575 L6.71554594,44.4188507 C2.46876683,39.9813776 0.345377275,35.1089553 0.345377275,29.8015838 C0.345377275,24.4942122 0.230251516,14.560351 -5.68434189e-14,2.84217094e-14 Z'
-                          style={{ fill: 'currentColor' }}
+                          style={ { fill: 'currentColor' } }
                         ></path>
                         <path
                           d='M69.3453773,32.2519224 L101.428699,1.42108547e-14 L138.784583,1.42108547e-14 L138.784199,29.8015838 C137.958931,37.3510206 135.784352,42.5567762 132.260463,45.4188507 C128.736573,48.2809251 112.33867,64.5239941 83.0667527,94.1480575 L56.2750821,94.1480575 L32.8435758,70.5039241 L69.3453773,32.2519224 Z'
@@ -194,13 +192,13 @@ const AddCard = () => {
                 <InputGroup className='input-group-merge invoice-edit-input-group disabled'>
                   <InputGroupAddon addonType='prepend'>
                     <InputGroupText>
-                      <Hash size={15} />
+                      <Hash size={ 15 } />
                     </InputGroupText>
                   </InputGroupAddon>
                   <Input
                     type='number'
                     className='invoice-edit-input'
-                    value={invoiceNumber || 3171}
+                    value={ invoiceNumber || 3171 }
                     placeholder='53634'
                     disabled
                   />
@@ -209,58 +207,58 @@ const AddCard = () => {
               <div className='d-flex align-items-center mb-1'>
                 <span className='title'>Date:</span>
                 <Flatpickr
-                  value={picker}
-                  onChange={date => setPicker(date)}
+                  value={ picker }
+                  onChange={ date => setPicker(date) }
                   className='form-control invoice-edit-input date-picker'
                 />
               </div>
               <div className='d-flex align-items-center'>
                 <span className='title'>Due Date:</span>
                 <Flatpickr
-                  value={dueDatepicker}
-                  onChange={date => setDueDatePicker(date)}
+                  value={ dueDatepicker }
+                  onChange={ date => setDueDatePicker(date) }
                   className='form-control invoice-edit-input due-date-picker'
                 />
               </div>
             </div>
           </div>
         </CardBody>
-        {/* /Header */}
+        {/* /Header */ }
 
         <hr className='invoice-spacing' />
 
-        {/* Address and Contact */}
+        {/* Address and Contact */ }
         <CardBody className='invoice-padding pt-0'>
           <Row className='row-bill-to invoice-spacing'>
             <Col className='col-bill-to pl-0' lg='8'>
               <h6 className='invoice-to-title'>Invoice To:</h6>
               <div className='invoice-customer'>
-                {clients !== null ? (
+                { clients !== null ? (
                   <Fragment>
                     <Select
                       className='react-select'
                       classNamePrefix='select'
                       id='label'
-                      value={value}
-                      options={options}
-                      theme={selectThemeColors}
-                      components={{
+                      value={ value }
+                      options={ options }
+                      theme={ selectThemeColors }
+                      components={ {
                         Option: OptionComponent
-                      }}
-                      onChange={handleInvoiceToChange}
+                      } }
+                      onChange={ handleInvoiceToChange }
                     />
-                    {selected !== null ? (
+                    { selected !== null ? (
                       <div className='customer-details mt-1'>
-                        <p className='mb-25'>{selected.name}</p>
-                        <p className='mb-25'>{selected.company}</p>
-                        <p className='mb-25'>{selected.address}</p>
-                        <p className='mb-25'>{selected.country}</p>
-                        <p className='mb-0'>{selected.contact}</p>
-                        <p className='mb-0'>{selected.companyEmail}</p>
+                        <p className='mb-25'>{ selected.name }</p>
+                        <p className='mb-25'>{ selected.company }</p>
+                        <p className='mb-25'>{ selected.address }</p>
+                        <p className='mb-25'>{ selected.country }</p>
+                        <p className='mb-0'>{ selected.contact }</p>
+                        <p className='mb-0'>{ selected.companyEmail }</p>
                       </div>
-                    ) : null}
+                    ) : null }
                   </Fragment>
-                ) : null}
+                ) : null }
               </div>
             </Col>
             <Col className='pr-0 mt-xl-0 mt-2' lg='4'>
@@ -294,11 +292,11 @@ const AddCard = () => {
             </Col>
           </Row>
         </CardBody>
-        {/* /Address and Contact */}
+        {/* /Address and Contact */ }
 
-        {/* Product Details */}
+        {/* Product Details */ }
         <CardBody className='invoice-padding invoice-product-details'>
-          <Repeater count={count}>
+          {/* <Repeater count={count}>
             {i => {
               const Tag = i === 0 ? 'div' : SlideDown
               return (
@@ -348,23 +346,23 @@ const AddCard = () => {
                 </Tag>
               )
             }}
-          </Repeater>
+          </Repeater> */}
           <Row className='mt-1'>
             <Col sm='12' className='px-0'>
-              <Button.Ripple color='primary' size='sm' className='btn-add-new' onClick={() => setCount(count + 1)}>
-                <Plus size={14} className='mr-25'></Plus>
+              <Button.Ripple color='primary' size='sm' className='btn-add-new' onClick={ () => setCount(count + 1) }>
+                <Plus size={ 14 } className='mr-25'></Plus>
                 <span className='align-middle'>Add Item</span>
               </Button.Ripple>
             </Col>
           </Row>
         </CardBody>
 
-        {/* /Product Details */}
+        {/* /Product Details */ }
 
-        {/* Invoice Total */}
+        {/* Invoice Total */ }
         <CardBody className='invoice-padding'>
           <Row className='invoice-sales-total-wrapper'>
-            <Col className='mt-md-0 mt-3' md={{ size: '6', order: 1 }} xs={{ size: 12, order: 2 }}>
+            <Col className='mt-md-0 mt-3' md={ { size: '6', order: 1 } } xs={ { size: 12, order: 2 } }>
               <div className='d-flex align-items-center mb-1'>
                 <Label for='salesperson' className='form-label'>
                   Salesperson:
@@ -372,7 +370,7 @@ const AddCard = () => {
                 <Input type='text' className='ml-50' id='salesperson' placeholder='Edward Crowley' />
               </div>
             </Col>
-            <Col className='d-flex justify-content-end' md={{ size: '6', order: 2 }} xs={{ size: 12, order: 1 }}>
+            <Col className='d-flex justify-content-end' md={ { size: '6', order: 2 } } xs={ { size: 12, order: 1 } }>
               <div className='invoice-total-wrapper'>
                 <div className='invoice-total-item'>
                   <p className='invoice-total-title'>Subtotal:</p>
@@ -395,11 +393,11 @@ const AddCard = () => {
             </Col>
           </Row>
         </CardBody>
-        {/* /Invoice Total */}
+        {/* /Invoice Total */ }
 
         <hr className='invoice-spacing mt-0' />
 
-        {/* Invoice Note */}
+        {/* Invoice Note */ }
         <CardBody className='invoice-padding py-0'>
           <Row>
             <Col>
@@ -407,21 +405,21 @@ const AddCard = () => {
                 <Label for='note' className='form-label font-weight-bold'>
                   Note:
                 </Label>
-                <Input type='textarea' rows='2' id='note' defaultValue={note} />
+                <Input type='textarea' rows='2' id='note' defaultValue={ note } />
               </FormGroup>
             </Col>
           </Row>
         </CardBody>
-        {/* /Invoice Note */}
+        {/* /Invoice Note */ }
       </Card>
 
       <Sidebar
         size='lg'
-        open={open}
+        open={ open }
         title='Add Payment'
         headerClassName='mb-1'
         contentClassName='p-0'
-        toggleSidebar={toggleSidebar}
+        toggleSidebar={ toggleSidebar }
       >
         <Form>
           <FormGroup>
@@ -447,11 +445,11 @@ const AddCard = () => {
               Country
             </Label>
             <Select
-              theme={selectThemeColors}
+              theme={ selectThemeColors }
               className='react-select'
               classNamePrefix='select'
-              options={countryOptions}
-              isClearable={false}
+              options={ countryOptions }
+              isClearable={ false }
             />
           </FormGroup>
           <FormGroup>
@@ -461,10 +459,10 @@ const AddCard = () => {
             <Input type='number' id='customer-contact' placeholder='763-242-9206' />
           </FormGroup>
           <FormGroup className='d-flex flex-wrap mt-2'>
-            <Button className='mr-1' color='primary' onClick={() => setOpen(false)}>
+            <Button className='mr-1' color='primary' onClick={ () => setOpen(false) }>
               Add
             </Button>
-            <Button color='secondary' onClick={() => setOpen(false)} outline>
+            <Button color='secondary' onClick={ () => setOpen(false) } outline>
               Cancel
             </Button>
           </FormGroup>

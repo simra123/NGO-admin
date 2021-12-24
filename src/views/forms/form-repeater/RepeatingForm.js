@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import Repeater from '@components/repeater'
 import { Row, Col, Card, CardHeader, CardBody, Form, FormGroup, Label, Input, Button } from 'reactstrap'
 import { X, Plus } from 'react-feather'
 
@@ -22,7 +21,7 @@ const RepeatingForm = () => {
       </CardHeader>
 
       <CardBody>
-        <Repeater count={count}>
+        {/* <Repeater count={count}>
           {i => (
             <Form key={i}>
               <Row className='justify-content-between align-items-center'>
@@ -70,9 +69,9 @@ const RepeatingForm = () => {
               </Row>
             </Form>
           )}
-        </Repeater>
-        <Button.Ripple className='btn-icon' color='primary' onClick={increaseCount}>
-          <Plus size={14} />
+        </Repeater> */}
+        <Button.Ripple className='btn-icon' color='primary' onClick={ increaseCount }>
+          <Plus size={ 14 } />
           <span className='align-middle ml-25'>Add New</span>
         </Button.Ripple>
       </CardBody>
